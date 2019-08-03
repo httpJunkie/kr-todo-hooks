@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import './Sidenav.css';
+import './Sidenav.scss';
 
 import Menu from './Menu';
 

@@ -5,8 +5,12 @@ const AppProvider = (props) => {
 
   const defaultState = {
     navOpen: false,
+    themeMode: 'light',
     toggleSidenav: (value) => {
       setApp((data) => ({ ...data, navOpen: value }));
+    },
+    changeTheme: (mode) => {
+      setApp((data) => ({ ...data, themeMode: mode }));
     }
   }
   const [appData, setApp] = useState(defaultState);

@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { Button } from "@progress/kendo-react-buttons";
 
 const Counter = () => {
   const [count, setCount] = useState(0);
@@ -12,7 +13,7 @@ const Counter = () => {
   return (
     <>
       <p>You clicked {count} times</p>
-      <button onClick={incrementCount}>Click Me</button>
+      <Button onClick={incrementCount} look="bare">Increment</Button>
     </>
   )
 }

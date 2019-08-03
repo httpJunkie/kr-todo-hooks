@@ -1,0 +1,36 @@
+body {
+  /* Light Mode */
+  background-color: #FFF;
+  color: #222;
+}
+
+.app-container {
+  /* Light Mode */
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.005); 
+}
+
+.sidenav, .sidenav.show {
+  /* Light Mode */
+  background-color: #eee;
+}
+
+header {
+  background-color: #fff;
+  color: #222222;
+  border-bottom: 1px solid rgb(200,200,200);
+}
+
+footer {
+  /* Light Mode */ /* ON */
+  background-color: #fff;
+  color: #222;
+}
+
+/* Light Mode */ /* ON */
+.topnav ul > li a { 
+  color: rgb(33, 37, 41); 
+}
+
+input {
+  color: #222;
+}

@@ -1,0 +1,38 @@
+body {
+  /* Dark Mode */
+  background-color: #1c1c1c;
+  color: rgba(240,240,240,0.99);
+}
+
+.app-container {
+  /* Dark Mode */
+  text-shadow: 1px 1px 1px rgba(240,240,240,0.005);
+}
+
+.sidenav, .sidenav.show {
+  /* Light Mode */
+  background-color: #1e1e1e;
+}
+
+header {
+background-color: #0f0f0f;
+color: rgb(240,240,240);
+border-bottom: 1px solid rgb(2,2,2);
+}
+
+footer {
+  /* Dark Mode */
+  border-top: 1px solid #ccc;
+  background-color: #0f0f0f;
+  color: rgb(240, 240,240);
+}
+
+/* Dark Mode */
+.topnav ul > li a {
+  color: rgb(240,240,240);
+}
+
+
+input {
+  color: #FFF;
+}

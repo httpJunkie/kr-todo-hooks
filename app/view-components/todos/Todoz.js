@@ -1,6 +1,5 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import './Todos.css';
 
 import * as constants from './constants';
 import { todoReducer } from './todoReducer';

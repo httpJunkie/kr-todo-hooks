@@ -1,5 +1,5 @@
 import React from 'react';
-import './Topnav.css';
+import './Topnav.scss';
 
 import Menu from './Menu';
 

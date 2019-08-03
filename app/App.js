@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useMediaPredicate } from 'react-media-hook';
-import { getCurrentDate } from './utils/date'
 
-import './App.css';
-import logo from './images/logo.png';
+import './App.scss';
+import '@progress/kendo-theme-material/dist/all.css';
+import '@progress/kendo-react-intl';
 
 import { AppProvider } from "./AppContext";
 
@@ -14,20 +14,23 @@ import Todoz from './view-components/todos/Todoz';
 
 import SideNav from './partial-components/Sidenav';
 import TopNav from './partial-components/Topnav';
+import Footer from './Footer';
+
+import Theme from './Theme';
 
 const App = () => {
   let isMediumPlus = useMediaPredicate("(min-width: 600px)") ? false : true;
-  let currentDate = getCurrentDate('year', '');
 
   return (
     <AppProvider>
+      <Theme />
       <BrowserRouter>
-        <div className={`app-container ${!isMediumPlus ? 'medium' : 'small'}`}>
+        <div className={`app-container ${!isMediumPlus ? 'medium' : 'small'} `}>
           <main>
 
             <header>
               <div className="logo">
-                <img src={logo} alt="logo" />
+                <span className="k-icon k-i-check"></span> the-todo.co
               </div>
               <TopNav />
             </header>
@@ -42,7 +45,7 @@ const App = () => {
             </section>
 
             <footer>
-              <p>The Todo Company &copy; {currentDate}</p>
+              <Footer />
             </footer>
 
           </main>
