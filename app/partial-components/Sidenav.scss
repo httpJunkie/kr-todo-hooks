@@ -14,9 +14,7 @@
   align-items: center;
 
   /* list-style-type: none; */
-  min-height: 55px;
-  background-color: #efefef;
-  border-bottom: 1px solid #ccc;
+  min-height: 60px;
 }
 .sidenav li > a {
   margin-left: 1em;
@@ -31,3 +29,23 @@
 
 .app-container.small .sidenav { display: auto; }
 .app-container.medium .sidenav { display: none; }
+
+
+/* Light Theme */
+.app-container.dark {
+  .sidenav {
+    background-color: #0f0f0f;
+  }
+  .sidenav li {
+    border-bottom: 1px solid #333;
+  }
+}
+/* Dark Theme */
+.app-container.light {
+  .sidenav {
+    background-color: #FFF;
+  }
+  .sidenav li {
+    border-bottom: 1px solid #CCC;
+  }
+}

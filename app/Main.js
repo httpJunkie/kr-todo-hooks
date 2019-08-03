@@ -1,26 +1,25 @@
 import React, { useContext } from "react";
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useMediaPredicate } from 'react-media-hook';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { useMediaPredicate } from "react-media-hook";
 import { AppContext } from "./AppContext";
 
-import Home from './view-components/Home';
-import Todos from './view-components/todos/Todos';
-import Todoz from './view-components/todos/Todoz';
+import Home from "./view-components/Home";
+import Todos from "./view-components/todos/Todos";
+import Todoz from "./view-components/todos/Todoz";
 
-import SideNav from './partial-components/Sidenav';
-import TopNav from './partial-components/Topnav';
-import Footer from './Footer';
+import SideNav from "./partial-components/Sidenav";
+import TopNav from "./partial-components/Topnav";
+import Footer from "./Footer";
 
 const Main = () => {
   const context = useContext(AppContext);
   let isMediumPlus = useMediaPredicate("(min-width: 600px)") ? false : true;
 
   return (
-    <div>
+    <>
       <BrowserRouter>
         <div
-          className={`app-container ${!isMediumPlus ? "medium" : "small"} 
-            ${context.themeMode === 'light' ? 'light' : 'dark'}`}>
+          className={`app-container ${!isMediumPlus ? "medium" : "small"} ${context.themeMode === "light" ? "light" : "dark"}`}>
           <main>
             <header>
               <div className="logo">
@@ -49,7 +48,7 @@ const Main = () => {
           <SideNav />
         </div>
       </BrowserRouter>
-    </div>
+    </>
   );
 };
 
