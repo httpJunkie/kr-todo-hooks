@@ -1,6 +1,22 @@
-body {
-  /* Theme Mode */
+.app-container {
+  display: flex;
+  height: 100vh;
+
+  font-family: "Lato", sans-serif;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
 }
+
+/* Themable */
+.app-container.light {
+  background-color: #fff;
+  color: #222;
+}
+.app-container.dark {
+  background-color: #1c1c1c;
+  color: rgba(240, 240, 240, 0.99);
+}
+/* Themable */
 
 /* Basic Link Styles */
 p {
@@ -18,17 +34,19 @@ a {
   background-repeat: no-repeat;
   background-size: 0% 4px;
   background-position-y: 1.1em;
-  transition: background-size cubic-bezier(0,.5,0,1) 0.3s;
+  transition: background-size cubic-bezier(0, 0.5, 0, 1) 0.3s;
 }
-a:hover, a:visited:hover, a:active:hover {
+a:hover,
+a:visited:hover,
+a:active:hover {
   text-decoration: none;
   background-size: 100% 4px;
 }
-a:focus, a:visited {
+a:focus,
+a:visited {
   text-decoration: none;
   background-size: 0% 4px;
 }
-
 .k-grid-header-wrap a {
   background-image: none;
   background-position: 0;
@@ -37,22 +55,10 @@ a:focus, a:visited {
   background-position-y: auto;
   transition: none;
 }
-
-// a:active { 
+// a:active {
 //   background-color: yellow;
 // }
 
-/* App Flexbox Conatiner and Items */
-.app-container {
-  display: flex;
-  height: 100vh;
-
-  font-family: 'Lato', sans-serif;
-  text-rendering: optimizeLegibility !important;
-  -webkit-font-smoothing: antialiased !important;
-
-  /* Theme Mode */
-}
 main {
   width: 100%;
   display: grid;
@@ -60,14 +66,18 @@ main {
 }
 
 /* How can we clean this up more */
-.sidenav, .sidenav.show {
+.sidenav,
+.sidenav.show {
   min-width: 150px;
   height: 100vh;
   /* Theme Mode */
 }
-.sidenav.hide { display: none; }
+.sidenav.hide {
+  display: none;
+}
 
-.todo-form, .todo-container {
+.todo-form,
+.todo-container {
   margin-bottom: 1em;
 }
 
@@ -102,4 +112,61 @@ footer {
 footer div {
   margin-left: 1em;
   margin-top: 1em;
+}
+
+/* Light Theme */
+.app-container.light {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.005);
+  .sidenav,
+  .sidenav.show {
+    background-color: #eee;
+  }
+  header {
+    background-color: #fff;
+    color: #222222;
+    border-bottom: 1px solid rgb(200, 200, 200);
+  }
+  footer {
+    background-color: #fff;
+    color: #222;
+  }
+  .topnav ul > li a {
+    color: rgb(33, 37, 41);
+  }
+  input {
+    color: #222;
+  }
+
+  /* Kendo material Light*/
+  @import "./sass/blue-pink-light/all.scss";
+  @import "./sass/blue-pink-light/variables.scss";
+}
+
+/* Dark Theme */
+.app-container.dark {
+  text-shadow: 1px 1px 1px rgba(240, 240, 240, 0.005);
+  .sidenav,
+  .sidenav.show {
+    background-color: #1e1e1e;
+  }
+  header {
+    background-color: #0f0f0f;
+    color: rgb(240, 240, 240);
+    border-bottom: 1px solid rgb(2, 2, 2);
+  }
+  footer {
+    border-top: 1px solid #ccc;
+    background-color: #0f0f0f;
+    color: rgb(240, 240, 240);
+  }
+  .topnav ul > li a {
+    color: rgb(240, 240, 240);
+  }
+  input {
+    color: #fff;
+  }
+
+  /* Kendo material dark*/
+  @import "./sass/cyan-amber-dark/all.scss";
+  @import "./sass/cyan-amber-dark/variables.scss";
 }
