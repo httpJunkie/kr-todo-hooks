@@ -5,7 +5,10 @@ import { getCurrentDate } from './utils/date';
 
 const Footer = () => {
   const context = useContext(AppContext);
+  const isLight = context.themeMode === 'light'
+
   let currentDate = getCurrentDate('year', '');
+
   let handleSwitch = () => {
     let newValue = context.themeMode === 'light' ? 'dark' : 'light';
     context.changeTheme(newValue);
@@ -16,7 +19,7 @@ const Footer = () => {
       The Todo Company &copy; {currentDate} &nbsp; | &nbsp;
       <ThemeSwitch
        onChange={() => handleSwitch()}
-       checked={context.themeMode === 'light' ? true : false}
+       checked={isLight ? true : false}
       /> &nbsp; <span>{context.themeMode}</span>
     </div>
   );
