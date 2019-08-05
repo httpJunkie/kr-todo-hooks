@@ -63,16 +63,16 @@ const Todo = () => {
     <>
       <div className="todo-form">
         <form onSubmit={addTodo}>
-          <Input tabindex="5" onChange={textInputOnChange} value={textInput} type="search" placeholder="Enter task..." autoComplete="off" />
+          <Input onChange={textInputOnChange} value={textInput} type="search" placeholder="Enter task..." autoComplete="off" />
           <Button onClick={addTodo} look="bare" icon="plus" type="submit">Add</Button>
         </form>
       </div>
       <div className="todo-container">
-        <Grid tabindex="6"
+        <Grid 
         // rowRender={rowRender} 
         data={todos} style={{ width: "100%", height: "100%" }}>
           <Column field="name" title="Name" />
-          <Column field="complete" title="Completed"
+          <Column  field="complete" title="Completed"
             cell={props => (
               <td>
                 <Button onClick={() => toggleComplete(props.dataItem.id)} look="bare" icon={props.dataItem[props.field] ? 'checkbox-checked' : 'checkbox'} />
@@ -88,7 +88,7 @@ const Todo = () => {
           />
         </Grid>
       </div>
-      <Button tabindex="7" look="bare" icon="reset" onClick={() => clearTodos()}>Clear All Todos</Button>
+      <Button look="bare" icon="reset" onClick={() => clearTodos()}>Clear All Todos</Button>
     </>
   );
 };

@@ -36,11 +36,11 @@
     "axios": "^0.19.0",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
-    "react": "^16.8.5",
-    "react-dom": "^16.8.5",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-media-hook": "^0.3.0",
     "react-responsive-image": "^5.0.0",
-    "react-router-dom": "^4.3.1",
+    "react-router-dom": "^5.0.1",
     "url-loader": "^1.1.2"
   },
   "devDependencies": {
@@ -60,8 +60,8 @@
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
-    "webpack": "^4.27.1",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.14"
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2"
   }
 }
