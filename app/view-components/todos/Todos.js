@@ -63,12 +63,12 @@ const Todo = () => {
     <>
       <div className="todo-form">
         <form onSubmit={addTodo}>
-          <Input onChange={textInputOnChange} value={textInput} type="search" placeholder="Enter task..." autoComplete="off" />
+          <Input tabindex="5" onChange={textInputOnChange} value={textInput} type="search" placeholder="Enter task..." autoComplete="off" />
           <Button onClick={addTodo} look="bare" icon="plus" type="submit">Add</Button>
         </form>
       </div>
       <div className="todo-container">
-        <Grid 
+        <Grid tabindex="6"
         // rowRender={rowRender} 
         data={todos} style={{ width: "100%", height: "100%" }}>
           <Column field="name" title="Name" />
@@ -88,7 +88,7 @@ const Todo = () => {
           />
         </Grid>
       </div>
-      <Button look="bare" icon="reset" onClick={() => clearTodos()}>Clear All Todos</Button>
+      <Button tabindex="7" look="bare" icon="reset" onClick={() => clearTodos()}>Clear All Todos</Button>
     </>
   );
 };
