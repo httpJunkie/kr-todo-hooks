@@ -16,32 +16,30 @@ const Main = () => {
   let isMediumPlus = useMediaPredicate("(min-width: 600px)") ? false : true;
 
   return (
-    <>
-      <BrowserRouter>
-        <div className={`app-container ${!isMediumPlus ? "medium" : "small"} ${context.themeMode === "light" ? "light" : "dark"}`}>
-          <main>
-            <header>
-              <div className="logo">
-                <span className="k-icon k-i-check" /> the-todo.co
-              </div>
-              <TopNav />
-            </header>
-            <section>
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/todos" component={Todos} />
-                <Route exact path="/todoz" component={Todoz} />
-                <Route render={() => <h2>404 Page Not Found</h2>}/>
-              </Switch>
-            </section>
-            <footer>
-              <Footer />
-            </footer>
-          </main>
-          <SideNav />
-        </div>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <div className={`app-container ${!isMediumPlus ? "medium" : "small"} ${context.themeMode === "light" ? "light" : "dark"}`}>
+        <main>
+          <header>
+            <div className="logo">
+              <span className="k-icon k-i-check" /> the-todo.co
+            </div>
+            <TopNav />
+          </header>
+          <section>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/todos" component={Todos} />
+              <Route exact path="/todoz" component={Todoz} />
+              <Route render={() => <h2>404 Page Not Found</h2>} />
+            </Switch>
+          </section>
+          <footer>
+            <Footer />
+          </footer>
+        </main>
+        <SideNav />
+      </div>
+    </BrowserRouter>
   );
 };
 
