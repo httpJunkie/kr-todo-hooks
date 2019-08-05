@@ -99,19 +99,11 @@ footer div {
   margin-top: 1em;
 }
 
-
-
-/* Themes */
-
 /* Light Theme */
 .app-container.light {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.005);
   background-color: #fff;
   color: #222;
-
-  section a {
-    background-color: #eee;
-  }
 
   .sidenav.show {
     background-color: rgb(250, 250, 250);
@@ -120,6 +112,9 @@ footer div {
     background-color: #fff;
     color: #222222;
     border-bottom: 1px solid rgb(200, 200, 200);
+  }
+  section a {
+    background-color: #eee;
   }
   footer {
     background-color: #fff;
@@ -143,10 +138,6 @@ footer div {
   background-color: #0f0f0f;
   color: rgba(240, 240, 240, 0.99);
 
-  section a {
-    background-color: #333;
-  }
-
   .sidenav,
   .sidenav.show {
     background-color: #1e1e1e;
@@ -155,6 +146,9 @@ footer div {
     background-color: #0f0f0f;
     color: rgb(240, 240, 240);
     border-bottom: 1px solid #555;
+  }
+  section a {
+    background-color: #333;
   }
   footer {
     background-color: #0f0f0f;

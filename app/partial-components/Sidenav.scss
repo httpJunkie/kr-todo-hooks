@@ -1,7 +1,6 @@
 .sidenav ul {
   display: flex;
   flex-direction: column;
-
   margin-block-start: 0;
   margin-block-end: 0;
   margin-inline-start: 0;
@@ -12,8 +11,6 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-
-  /* list-style-type: none; */
   min-height: 60px;
 }
 .sidenav li > a {
@@ -30,7 +27,6 @@
 .app-container.small .sidenav { display: auto; }
 .app-container.medium .sidenav { display: none; }
 
-
 /* Light Theme */
 .app-container.dark {
   .sidenav {
@@ -40,6 +36,7 @@
     border-bottom: 1px solid #555;
   }
 }
+
 /* Dark Theme */
 .app-container.light {
   .sidenav {
