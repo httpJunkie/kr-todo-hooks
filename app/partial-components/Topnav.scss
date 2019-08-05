@@ -10,6 +10,11 @@
 .topnav ul > li:not(:last-child) { margin-right: 15px; }
 .topnav ul > li a { color: rgb(33, 37, 41); }
 
+.topnav ul > li.menu { 
+  cursor: pointer;
+  cursor: hand;
+ }
+
 .app-container.small .topnav ul > li.link { display: none; }
 .app-container.medium .topnav ul > li.link { display: auto; }
 
