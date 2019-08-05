@@ -18,8 +18,7 @@ const Main = () => {
   return (
     <>
       <BrowserRouter>
-        <div
-          className={`app-container ${!isMediumPlus ? "medium" : "small"} ${context.themeMode === "light" ? "light" : "dark"}`}>
+        <div className={`app-container ${!isMediumPlus ? "medium" : "small"} ${context.themeMode === "light" ? "light" : "dark"}`}>
           <main>
             <header>
               <div className="logo">
@@ -27,20 +26,14 @@ const Main = () => {
               </div>
               <TopNav />
             </header>
-
             <section>
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/todos" component={Todos} />
                 <Route exact path="/todoz" component={Todoz} />
-                <Route
-                  render={() => (
-                    <h2 className="four-o-four">404 Page Not Found</h2>
-                  )}
-                />
+                <Route render={() => <h2>404 Page Not Found</h2>}/>
               </Switch>
             </section>
-
             <footer>
               <Footer />
             </footer>
