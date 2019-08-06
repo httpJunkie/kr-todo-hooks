@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useMediaPredicate } from "react-media-hook";
-import { AppContext } from "./AppContext";
+import { AppContext } from "./context/AppContext";
 
 import Home from "./view-components/Home";
 import Todos from "./view-components/todos/Todos";

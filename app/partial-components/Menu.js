@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import { AppContext } from "../AppContext";
+import { AppContext } from "../context/AppContext";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './faImports';
@@ -20,14 +20,15 @@ const Menu = () => {
       </li>
       <li className="menu">
         <FontAwesomeIcon tabIndex="1" icon="bars" className="hoverable" 
-        onKeyPress={event => {
-          if (event.key === 'Enter') {
+          onKeyPress={event => {
+            if (event.key === 'Enter') {
+              context.toggleSidenav(!context.navOpen)
+            }
+          }}
+          onClick={() => {
             context.toggleSidenav(!context.navOpen)
-          }
-        }}
-        onClick={() => {
-          context.toggleSidenav(!context.navOpen)
-        }} />
+          }}
+      />
       </li>
     </ul>
   )

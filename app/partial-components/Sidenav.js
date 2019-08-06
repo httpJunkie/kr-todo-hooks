@@ -4,7 +4,7 @@ import './Sidenav.scss';
 import Menu from './Menu';
 
 /* We need context in this component to show/hide sidenav */
-import { AppContext } from "../AppContext";
+import { AppContext } from "../context/AppContext";
 
 const SideNav = () => {
   const context = useContext(AppContext);

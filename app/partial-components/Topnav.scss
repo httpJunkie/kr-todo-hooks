@@ -10,13 +10,23 @@
 .topnav ul > li:not(:last-child) { margin-right: 15px; }
 .topnav ul > li a { color: rgb(33, 37, 41); }
 
-.topnav ul > li.menu { 
-  cursor: pointer;
-  cursor: hand;
- }
-
 .app-container.small .topnav ul > li.link { display: none; }
 .app-container.medium .topnav ul > li.link { display: auto; }
 
+.app-container .topnav ul > li.menu { cursor: pointer; cursor: hand; }
 .app-container.small .topnav ul > li.menu { display: auto; }
 .app-container.medium .topnav ul > li.menu { display: none; }
+
+/* Light Theme */
+.app-container.light {
+  .topnav ul > li a {
+    color: rgb(33, 37, 41);
+  }
+}
+
+/* Dark Theme */
+.app-container.dark {
+  .topnav ul > li a {
+    color: rgb(240, 240, 240);
+  }
+}

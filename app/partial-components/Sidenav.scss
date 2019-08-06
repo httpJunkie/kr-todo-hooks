@@ -28,21 +28,23 @@
 .app-container.medium .sidenav { display: none; }
 
 /* Light Theme */
-.app-container.dark {
+.app-container.light {
   .sidenav {
-    background-color: #0f0f0f;
+    background-color: #EFEFEF;
+    color: #222222;
   }
   .sidenav li {
-    border-bottom: 1px solid #555;
+    border-bottom: 1px solid #555555;
   }
 }
 
 /* Dark Theme */
-.app-container.light {
+.app-container.dark {
   .sidenav {
-    background-color: #FFF;
+    background-color: #1e1e1e;
+    color: #FFFFFF;
   }
   .sidenav li {
-    border-bottom: 1px solid #CCC;
+    border-bottom: 1px solid #EFEFEF;
   }
 }

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { AppContext } from "./AppContext";
+import { AppContext } from "./context/AppContext";
 import { Switch as ThemeSwitch } from '@progress/kendo-react-inputs';
 import { getCurrentDate } from './utils/date';
 

@@ -5,7 +5,7 @@ import './App.scss';
 import '@progress/kendo-theme-material/dist/all.css';
 import '@progress/kendo-react-intl';
 
-import { AppProvider } from "./AppContext";
+import { AppProvider } from "./context/AppContext";
 
 import Main from './Main';
 

@@ -12,12 +12,3 @@ export const monthName = [
   "November",
   "December"
 ];
-// export const weekName = [
-//   "Monday",
-//   "Tuesday",
-//   "Wednesday",
-//   "Thursday",
-//   "Friday",
-//   "Saturday",
-//   "Sunday"
-// ];
