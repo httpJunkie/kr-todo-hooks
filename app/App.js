@@ -1,12 +1,12 @@
 import React from 'react';
 
-
-import './App.scss';
+/* Import all main styles for the entire application */
+import 'normalize.css';
 import '@progress/kendo-theme-material/dist/all.css';
-import '@progress/kendo-react-intl';
+import './App.scss';
 
+/* Import Global App State and Provide to entire Application */
 import { AppProvider } from "./context/AppContext";
-
 import Main from './Main';
 
 const App = () => {
