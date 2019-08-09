@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { AppContext } from "./context/AppContext";
+import { AppContext } from "../context/AppContext";
 import { Switch as ThemeSwitch } from '@progress/kendo-react-inputs';
-import { getCurrentDate } from './utils/date';
+import { getCurrentDate } from '../utils/date';
 
 const Footer = () => {
   const context = useContext(AppContext);

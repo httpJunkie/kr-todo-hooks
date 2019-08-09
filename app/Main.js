@@ -10,7 +10,7 @@ const LoadingMessage = () => `loading...`;
 
 import SideNav from "./partial-components/Sidenav";
 import TopNav from "./partial-components/Topnav";
-import Footer from "./Footer";
+import Footer from "./partial-components/Footer";
 
 const Main = () => {
   const context = useContext(AppContext);
