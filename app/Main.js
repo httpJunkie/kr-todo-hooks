@@ -1,11 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, lazy, Suspense } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useMediaPredicate } from "react-media-hook";
 import { AppContext } from "./context/AppContext";
 
-import Home from "./view-components/Home";
-import Todos from "./view-components/todos/Todos";
-import Todoz from "./view-components/todos/Todoz";
+const Home = lazy(() => import('./view-components/Home'));
+const Todos = lazy(() => import('./view-components/todos/Todos'));
+const Todoz = lazy(() => import('./view-components/todos/Todoz'));
+const LoadingMessage = () => `loading...`;
 
 import SideNav from "./partial-components/Sidenav";
 import TopNav from "./partial-components/Topnav";
@@ -17,7 +18,11 @@ const Main = () => {
 
   return (
     <BrowserRouter>
-      <div className={`app-container ${!isMediumPlus ? "medium" : "small"} ${context.themeMode === "light" ? "light" : "dark"}`}>
+      <div 
+        className={`app-container 
+          ${!isMediumPlus ? "medium" : "small"} 
+          ${context.themeMode === "light" ? "light" : "dark"}
+        `}>
         <main>
           <header>
             <div className="logo">
@@ -27,9 +32,11 @@ const Main = () => {
           </header>
           <section>
             <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/todos" component={Todos} />
-              <Route exact path="/todoz" component={Todoz} />
+              <Suspense fallback={<LoadingMessage />}>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/todos" component={Todos} />
+                <Route exact path="/todoz" component={Todoz} />
+              </Suspense>
               <Route render={() => <h2>404 Page Not Found</h2>} />
             </Switch>
           </section>
