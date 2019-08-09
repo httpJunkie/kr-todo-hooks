@@ -15,14 +15,12 @@ import Footer from "./Footer";
 const Main = () => {
   const context = useContext(AppContext);
   let isMediumPlus = useMediaPredicate("(min-width: 600px)") ? false : true;
+  let breakpoint = !isMediumPlus ? "medium" : "small";
+  let themeMode = context.themeMode === "light" ? "light" : "dark";
 
   return (
     <BrowserRouter>
-      <div 
-        className={`app-container 
-          ${!isMediumPlus ? "medium" : "small"} 
-          ${context.themeMode === "light" ? "light" : "dark"}
-        `}>
+      <div className={`app-container ${breakpoint} ${themeMode}`}>
         <main>
           <header>
             <div className="logo">
