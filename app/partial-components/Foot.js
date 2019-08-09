@@ -3,7 +3,7 @@ import { AppContext } from "../context/AppContext";
 import { Switch as ThemeSwitch } from '@progress/kendo-react-inputs';
 import { getCurrentDate } from '../utils/date';
 
-const Footer = () => {
+const Foot = () => {
   const context = useContext(AppContext);
   const isLight = context.themeMode === 'light'
 
@@ -25,4 +25,4 @@ const Footer = () => {
   );
 }
 
-export default Footer;
+export default Foot;

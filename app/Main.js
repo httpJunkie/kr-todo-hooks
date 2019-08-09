@@ -8,9 +8,10 @@ const Todos = lazy(() => import('./view-components/todos/Todos'));
 const Todoz = lazy(() => import('./view-components/todos/Todoz'));
 const LoadingMessage = () => `loading...`;
 
+import Logo from "./partial-components/Logo";
 import SideNav from "./partial-components/Sidenav";
 import TopNav from "./partial-components/Topnav";
-import Footer from "./partial-components/Footer";
+import Foot from "./partial-components/Foot";
 
 const Main = () => {
   const context = useContext(AppContext);
@@ -22,9 +23,7 @@ const Main = () => {
       <div className={`app-container ${breakpoint} ${themeMode}`}>
         <main>
           <header>
-            <div className="logo">
-              <span className="k-icon k-i-check"></span> <span>the-todo.co</span>
-            </div>
+            <Logo />
             <TopNav />
           </header>
           <section>
@@ -38,7 +37,7 @@ const Main = () => {
             </Switch>
           </section>
           <footer>
-            <Footer />
+            <Foot />
           </footer>
         </main>
         <SideNav />
