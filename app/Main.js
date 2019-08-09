@@ -24,7 +24,7 @@ const Main = () => {
         <main>
           <header>
             <div className="logo">
-              <span className="k-icon k-i-check" /> the-todo.co
+              <span className="k-icon k-i-check"></span> <span>the-todo.co</span>
             </div>
             <TopNav />
           </header>
