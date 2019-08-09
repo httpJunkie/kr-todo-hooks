@@ -14,8 +14,7 @@ import Footer from "./Footer";
 
 const Main = () => {
   const context = useContext(AppContext);
-  let isMediumPlus = useMediaPredicate("(min-width: 600px)") ? false : true;
-  let breakpoint = !isMediumPlus ? "medium" : "small";
+  let breakpoint = useMediaPredicate("(min-width: 600px)") ? "small" : "medium";
   let themeMode = context.themeMode === "light" ? "light" : "dark";
 
   return (
