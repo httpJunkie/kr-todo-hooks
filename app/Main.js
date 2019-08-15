@@ -15,7 +15,7 @@ import Foot from "./partial-components/Foot";
 
 const Main = () => {
   const context = useContext(AppContext);
-  let breakpoint = useMediaPredicate("(min-width: 600px)") ? "small" : "medium";
+  let breakpoint = useMediaPredicate("(min-width: 600px)") ? "medium" : "small";
   let themeMode = context.themeMode === "light" ? "light" : "dark";
 
   return (

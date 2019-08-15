@@ -13,13 +13,13 @@ const Menu = () => {
         <NavLink tabIndex="2" exact activeClassName="active" to="/">Home</NavLink>
       </li>
       <li className="link">
-        <NavLink tabIndex="3" activeClassName="active" to="/todos">Todos</NavLink>
+        <NavLink tabIndex="3" activeClassName="active" to="/todos">To Do's</NavLink>
       </li>
       <li className="link">
-        <a tabIndex="4" href="https://github.com/httpJunkie/react-todo">Source Code</a>
+        <a tabIndex="4" href="https://github.com/httpJunkie/react-todo">Source Code <span className="k-icon k-i-hyperlink-open-sm"></span></a>
       </li>
       <li className="menu">
-        <FontAwesomeIcon tabIndex="1" icon="bars" className="hoverable" 
+        <FontAwesomeIcon tabIndex="1" icon="bars" 
           onKeyPress={event => {
             if (event.key === 'Enter') {
               context.toggleSidenav(!context.navOpen)

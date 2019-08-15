@@ -5,21 +5,20 @@ import { getCurrentDate } from '../utils/date';
 
 const Foot = () => {
   const context = useContext(AppContext);
-  const isLight = context.themeMode === 'light'
+  const isLight = context.themeMode === 'light';
+  const nextThemeMode = isLight ? 'dark' : 'light';
+  const currentDate = getCurrentDate('year', '');
 
-  let currentDate = getCurrentDate('year', '');
-
-  let handleSwitch = () => {
-    let newValue = context.themeMode === 'light' ? 'dark' : 'light';
-    context.changeTheme(newValue);
-  }
+  const handleThemeChange = () => context.changeTheme(nextThemeMode);
   
   return (
-    <div>
+    <div className="foot">
       The Todo Company &copy; {currentDate} &nbsp; | &nbsp;
-      <ThemeSwitch
-       onChange={() => handleSwitch()}
-       checked={isLight ? true : false}
+      <ThemeSwitch 
+        onChange={handleThemeChange} 
+        checked={isLight} 
+        onLabel={"enable light theme"} 
+        offLabel={"enable dark theme"}
       /> &nbsp; <span>{context.themeMode}</span>
     </div>
   );
