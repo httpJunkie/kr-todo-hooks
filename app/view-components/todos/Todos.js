@@ -13,14 +13,15 @@ import { todoReducer } from "./todoReducer";
 import { Input } from "@progress/kendo-react-inputs";
 import { Button } from "@progress/kendo-react-buttons";
 import { Grid, GridColumn as Column } from "@progress/kendo-react-grid";
-
+import Alert from "@reach/alert";
 const initialState = [...constants.TODO_SEED];
 
 const Todo = () => {
   const [todos, dispatch] = useReducer(todoReducer, initialState);
   const [textInput, setTextInput] = useState("");
   const completedTodos = todos.filter(todo => todo.complete);
-
+  //message that will be sent to screen reader upon successful completion of an action
+  const [successMsg, setSuccessMsg] = useState("");
   document.title = `The To Do List`;
 
   useEffect(() => {
@@ -37,8 +38,10 @@ const Todo = () => {
     setTextInput("");
   }
 
-  function toggleComplete(id) {
+  function toggleComplete({ id, name, complete }) {
     dispatch({ type: "TOGGLE_COMPLETE", id });
+    let completeString = !complete ? "completed" : "cancelled";
+    sendScreenReaderSuccess(`${name} was ${completeString} successfully.`);
   }
   function deleteTodo(id) {
     dispatch({ type: "DELETE_TODO", id });
@@ -69,8 +72,16 @@ const Todo = () => {
   function setScreenReaderMessage(name, action) {
     return ` ${action} to do item: ${name}`;
   }
+  //generates the action for the screen reader message based on if the itme is complete or not.
   function generateCompleteAction(dataItem) {
     return dataItem.complete ? "incompletes" : "completes";
+  }
+  //sends an alert to the screen reader after an action is complete.
+  function sendSuccessMessage(msg) {
+    setSuccessMsg(msg);
+    setTimeout(() => {
+      setSuccessMsg("");
+    }, 5000);
   }
   return (
     <>
@@ -83,7 +94,15 @@ const Todo = () => {
             placeholder="Enter task..."
             autoComplete="off"
           />
-          <Button onClick={addTodo} look="bare" icon="plus" type="submit">
+          <Button
+            onClick={e => {
+              addTodo(e);
+              sendSuccessMessage(`${textInput} added successfully.`);
+            }}
+            look="bare"
+            icon="plus"
+            type="submit"
+          >
             Add To Do
           </Button>
         </form>
@@ -101,7 +120,7 @@ const Todo = () => {
             cell={props => (
               <td>
                 <Button
-                  onClick={() => toggleComplete(props.dataItem.id)}
+                  onClick={() => toggleComplete(props.dataItem)}
                   aria-label={setScreenReaderMessage(
                     props.dataItem.name,
                     generateCompleteAction(props.dataItem)
@@ -121,7 +140,12 @@ const Todo = () => {
             cell={props => (
               <td>
                 <Button
-                  onClick={() => deleteTodo(props.dataItem.id)}
+                  onClick={() => {
+                    deleteTodo(props.dataItem.id);
+                    sendSuccessMessage(
+                      `${props.dataItem.name} was removed successfully.`
+                    );
+                  }}
                   aria-label={setScreenReaderMessage(
                     props.dataItem.name,
                     "removes"
@@ -134,9 +158,17 @@ const Todo = () => {
           />
         </Grid>
       </div>
-      <Button look="bare" icon="reset" onClick={() => clearTodos()}>
+      <Button
+        look="bare"
+        icon="reset"
+        onClick={() => {
+          clearTodos();
+          sendSuccessMessage(`All todos removed successfully.`);
+        }}
+      >
         Remove All To Do's
       </Button>
+      <Alert>{successMsg}</Alert>
     </>
   );
 };
