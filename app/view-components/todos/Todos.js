@@ -1,4 +1,10 @@
-import React, { useState, useReducer, useRef, useContext, useEffect } from "react";
+import React, {
+  useState,
+  useReducer,
+  useRef,
+  useContext,
+  useEffect
+} from "react";
 import "@progress/kendo-theme-material/dist/all.css";
 
 import * as constants from "./constants";
@@ -61,39 +67,76 @@ const Todo = () => {
   }
 
   function setScreenReaderMessage(name, action) {
-    return `, ${action} to do item: ${name}.`;
+    return ` ${action} to do item: ${name}`;
   }
-
+  function generateCompleteAction(dataItem) {
+    return dataItem.complete ? "incompletes" : "completes";
+  }
   return (
     <>
       <div className="todo-form">
         <form onSubmit={addTodo}>
-          <Input onChange={textInputOnChange} value={textInput} type="search" placeholder="Enter task..." autoComplete="off" />
-          <Button onClick={addTodo} look="bare" icon="plus" type="submit">Add To Do</Button>
+          <Input
+            onChange={textInputOnChange}
+            value={textInput}
+            type="search"
+            placeholder="Enter task..."
+            autoComplete="off"
+          />
+          <Button onClick={addTodo} look="bare" icon="plus" type="submit">
+            Add To Do
+          </Button>
         </form>
       </div>
       <div className="todo-container">
-        <Grid 
-        // rowRender={rowRender} 
-        data={todos} style={{ width: "100%", height: "100%" }}>
+        <Grid
+          // rowRender={rowRender}
+          data={todos}
+          style={{ width: "100%", height: "100%" }}
+        >
           <Column field="name" title="Name" />
-          <Column  field="complete" title="Completed"
+          <Column
+            field="complete"
+            title="Completed"
             cell={props => (
               <td>
-                <Button onClick={() => toggleComplete(props.dataItem.id)} title={setScreenReaderMessage(props.dataItem.name, 'completes')} look="bare" icon={props.dataItem[props.field] ? 'checkbox-checked' : 'checkbox'} />
+                <Button
+                  onClick={() => toggleComplete(props.dataItem.id)}
+                  aria-label={setScreenReaderMessage(
+                    props.dataItem.name,
+                    generateCompleteAction(props.dataItem)
+                  )}
+                  look="bare"
+                  icon={
+                    props.dataItem[props.field]
+                      ? "checkbox-checked"
+                      : "checkbox"
+                  }
+                />
               </td>
             )}
           />
-          <Column title="Remove"
+          <Column
+            title="Remove"
             cell={props => (
               <td>
-            <Button onClick={() => deleteTodo(props.dataItem.id)} title={setScreenReaderMessage(props.dataItem.name, 'removes')} look="bare" icon="trash" />
+                <Button
+                  onClick={() => deleteTodo(props.dataItem.id)}
+                  aria-label={setScreenReaderMessage(
+                    props.dataItem.name,
+                    "removes"
+                  )}
+                  look="bare"
+                  icon="trash"
+                />
               </td>
             )}
           />
         </Grid>
       </div>
-      <Button look="bare" icon="reset" onClick={() => clearTodos()}>Remove All To Do's</Button>
+      <Button look="bare" icon="reset" onClick={() => clearTodos()}>
+        Remove All To Do's
+      </Button>
     </>
   );
 };
