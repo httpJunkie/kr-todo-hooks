@@ -15,9 +15,10 @@ const Todo = () => {
   const [textInput, setTextInput] = useState("");
   const completedTodos = todos.filter(todo => todo.complete);
   const [successMsg, setSuccessMsg] = useState("");
-  document.title = `The To Do List`;
 
-  useEffect(() => document.title = `${completedTodos.length} completed to do's`);
+  useEffect(() => {
+    document.title = `${completedTodos.length} completed to do's`}
+  );
 
   function addTodo(event) {
     event.preventDefault();
@@ -43,18 +44,6 @@ const Todo = () => {
     dispatch({ type: "CLEAR_TODOS" });
     sendSuccessMessage(`All todos removed successfully.`);
   }
-
-  // function rowRender(trElement, props) {
-  //   const isEven = props.dataItem.id % 2 == 0;
-  //   const evenColor = { backgroundColor: "#1f1f1f" };
-  //   const oddColor = { backgroundColor: "#191919" };
-  //   const trProps = { style: isEven ? evenColor : oddColor };
-  //   return React.cloneElement(
-  //     trElement,
-  //     { ...trProps },
-  //     trElement.props.children
-  //   );
-  // }
 
   function textInputOnChange(event) {
     const value = event.target.value;
