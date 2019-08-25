@@ -9,7 +9,10 @@ const Foot = () => {
   const nextThemeMode = isLight ? 'dark' : 'light';
   const currentDate = getCurrentDate('year', '');
 
-  const handleThemeChange = () => context.changeTheme(nextThemeMode);
+  const handleThemeChange = () => {
+    context.changeTheme(nextThemeMode);
+    context.setScreenAnnoncement(`Site theme set to ${nextThemeMode}`);
+  }
   
   return (
     <div className="foot">

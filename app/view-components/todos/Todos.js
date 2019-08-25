@@ -1,20 +1,21 @@
-import React, { useState, useReducer, useEffect } from "react";
-import "@progress/kendo-theme-material/dist/all.css";
-
-import * as constants from "./constants";
-import { todoReducer } from "./todoReducer";
+import React, { useState, useReducer, useEffect, useContext } from "react";
 
 import { Input } from "@progress/kendo-react-inputs";
 import { Button } from "@progress/kendo-react-buttons";
 import { Grid, GridColumn as Column } from "@progress/kendo-react-grid";
-import Alert from "@reach/alert";
+import "@progress/kendo-theme-material/dist/all.css";
+
+import { AppContext } from "../../context/AppContext";
+import * as constants from "./constants";
+import { todoReducer } from "./todoReducer";
+
 const initialState = [...constants.TODO_SEED];
 
 const Todo = () => {
+  const context = useContext(AppContext);
   const [todos, dispatch] = useReducer(todoReducer, initialState);
   const [textInput, setTextInput] = useState("");
   const completedTodos = todos.filter(todo => todo.complete);
-  const [successMsg, setSuccessMsg] = useState("");
 
   useEffect(() => {
     document.title = `${completedTodos.length} completed to do's`}
@@ -28,45 +29,40 @@ const Todo = () => {
       complete: false
     });
     setTextInput("");
-    sendSuccessMessage(`${textInput} added successfully.`);
+    context.setScreenAnnoncement(`${textInput} added.`);
   }
 
   function toggleComplete({ id, name, complete }) {
     dispatch({ type: "TOGGLE_COMPLETE", id });
     let completeString = !complete ? "completed" : "cancelled";
-    sendScreenReaderSuccess(`${name} was ${completeString} successfully.`);
+    context.setScreenAnnoncement(`${name} was ${completeString}.`);
   }
-  function deleteTodo(id) {
+  function deleteTodo(item) {
+    let id = item.id
     dispatch({ type: "DELETE_TODO", id });
-    sendSuccessMessage(`${props.dataItem.name} was removed successfully.`);
+    context.setScreenAnnoncement(`${item.name} was removed.`);
   }
   function clearTodos() {
     dispatch({ type: "CLEAR_TODOS" });
-    sendSuccessMessage(`All todos removed successfully.`);
+    context.setScreenAnnoncement(`All todos removed.`);
   }
 
-  function textInputOnChange(event) {
+  function updateTextInput(event) {
     const value = event.target.value;
     if (textInput !== value) {
       setTextInput(value);
     }
   }
 
-  function setAriaLabel(name, action) {
+  function getAriaLabelText(action, name) {
     return ` ${action} to do item, ${name}`;
   }
-  function generateCompleteAction(dataItem) {
-    return dataItem.complete ? "incompletes" : "completes";
-  }
-  function sendSuccessMessage(msg) {
-    setSuccessMsg(msg);
-    setTimeout(() => setSuccessMsg(""), 5000);
-  }
+
   return (
     <>
       <div className="todo-form">
         <form onSubmit={addTodo}>
-          <Input onChange={textInputOnChange} value={textInput} type="search" placeholder="Enter task..." autoComplete="off" />
+          <Input onChange={updateTextInput} value={textInput} type="search" placeholder="Enter task..." autoComplete="off" />
           <Button onClick={e => addTodo(e)} look="bare" icon="plus" type="submit">
             Add To Do
           </Button>
@@ -82,7 +78,7 @@ const Todo = () => {
             cell={props => (
               <td>
                 <Button onClick={() => toggleComplete(props.dataItem)}
-                  aria-label={setAriaLabel(props.dataItem.name, generateCompleteAction(props.dataItem))}
+                  aria-label={getAriaLabelText(`${props.dataItem.complete ? 'Unc' : 'C'}ompletes`, props.dataItem.name)}
                   look="bare" icon={props.dataItem[props.field] ? "checkbox-checked" : "checkbox" }
                 />
               </td>
@@ -91,8 +87,8 @@ const Todo = () => {
           <Column title="Remove"
             cell={props => (
               <td>
-                <Button onClick={() => deleteTodo(props.dataItem.id)} 
-                  aria-label={setAriaLabel(props.dataItem.name,"removes")} 
+                <Button onClick={() => deleteTodo(props.dataItem)} 
+                  aria-label={getAriaLabelText(props.dataItem.name,"removes")} 
                   look="bare" icon="trash"
                 />
               </td>
@@ -103,7 +99,7 @@ const Todo = () => {
       <Button onClick={() => clearTodos()} look="bare" icon="reset">
         Remove All To Do's
       </Button>
-      <Alert>{successMsg}</Alert>
+      
     </>
   );
 };

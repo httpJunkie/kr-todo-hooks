@@ -2,6 +2,7 @@ import React, { useContext, lazy, Suspense } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useMediaPredicate } from "react-media-hook";
 import { AppContext } from "./context/AppContext";
+import Alert from "@reach/alert";
 
 const Home = lazy(() => import('./view-components/Home'));
 const Todos = lazy(() => import('./view-components/todos/Todos'));
@@ -42,6 +43,7 @@ const Main = () => {
         </main>
         <SideNav />
       </div>
+      <Alert>{context.screenReaderAnnoncement}</Alert>
     </BrowserRouter>
   );
 };
