@@ -55,7 +55,7 @@ const Todo = () => {
   }
 
   function getAriaLabelText(action, name) {
-    return ` ${action} to do item, ${name}`;
+    return `${action} to do item, ${name}.`;
   }
 
   return (
@@ -88,7 +88,7 @@ const Todo = () => {
             cell={props => (
               <td>
                 <Button onClick={() => deleteTodo(props.dataItem)} 
-                  aria-label={getAriaLabelText(props.dataItem.name,"removes")} 
+                  aria-label={getAriaLabelText('removes', props.dataItem.name)} 
                   look="bare" icon="trash"
                 />
               </td>
