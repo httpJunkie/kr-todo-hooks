@@ -18,8 +18,11 @@ const Todo = () => {
   const completedTodos = todos.filter(todo => todo.complete);
 
   useEffect(() => {
-    document.title = `${completedTodos.length} completed to do's`}
-  );
+    document.title = `${completedTodos.length} completed to do's`;
+    if(!todos.length) {
+      context.setScreenAnnoncement('No To Dos remaining.');
+    }
+  }, [todos]);
 
   function addTodo(event) {
     event.preventDefault();
@@ -31,7 +34,6 @@ const Todo = () => {
     setTextInput("");
     context.setScreenAnnoncement(`${textInput} added.`);
   }
-
   function toggleComplete({ id, name, complete }) {
     dispatch({ type: "TOGGLE_COMPLETE", id });
     let completeString = !complete ? "completed" : "cancelled";
@@ -54,10 +56,6 @@ const Todo = () => {
     }
   }
 
-  function getAriaLabelText(action, name) {
-    return `${action} to do item, ${name}.`;
-  }
-
   return (
     <>
       <div className="todo-form">
@@ -78,7 +76,7 @@ const Todo = () => {
             cell={props => (
               <td>
                 <Button onClick={() => toggleComplete(props.dataItem)}
-                  aria-label={getAriaLabelText(`${props.dataItem.complete ? 'Unc' : 'C'}ompletes`, props.dataItem.name)}
+                  aria-label={`${props.dataItem.complete ? 'Unc' : 'C'}ompletes ${props.dataItem.name}.`}
                   look="bare" icon={props.dataItem[props.field] ? "checkbox-checked" : "checkbox" }
                 />
               </td>
@@ -88,7 +86,7 @@ const Todo = () => {
             cell={props => (
               <td>
                 <Button onClick={() => deleteTodo(props.dataItem)} 
-                  aria-label={getAriaLabelText('removes', props.dataItem.name)} 
+                  aria-label={`removes ${props.dataItem.name}`}
                   look="bare" icon="trash"
                 />
               </td>
