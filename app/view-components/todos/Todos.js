@@ -20,7 +20,7 @@ const Todo = () => {
   useEffect(() => {
     document.title = `${completedTodos.length} completed to do's`;
     if(!todos.length) {
-      context.setScreenAnnoncement('No To Dos remaining.');
+      context.setScreenAnnoncement('No To Do\'s remaining.');
     }
   }, [todos]);
 
