@@ -3,7 +3,7 @@
 		"scope": "javascript",
 		"prefix": "s07b",
 		"body": [
-      "[]"
+      "[];"
 		],
 		"description": "todo-app Clear_Todos reducer result"
 	}

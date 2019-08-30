@@ -4,13 +4,13 @@ switch (action.type) {
       return null // 04
     }
     case 'TOGGLE_COMPLETE': {
-      return  null // 05
+      return null // 05
     }
     case 'DELETE_TODO': {
-      return  null // 06
+      return null // 06
     }
     case 'CLEAR_TODOS': {
-      return  null // 07
+      return null // 07
     }
     default: {
       return state;
