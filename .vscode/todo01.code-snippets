@@ -1,0 +1,11 @@
+{
+	"Redirect State Hook": {
+		"scope": "javascript",
+		"prefix": "s01",
+		"body": [
+			"const [todos, dispatch] = useReducer(todoReducer, initialState);",
+			"const [textInput, setTextInput] = useState('');"
+		],
+		"description": "Add state for todos and textInput"
+	}
+}

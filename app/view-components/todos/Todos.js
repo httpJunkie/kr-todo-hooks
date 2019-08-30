@@ -5,90 +5,64 @@ import { Button } from "@progress/kendo-react-buttons";
 import { Grid, GridColumn as Column } from "@progress/kendo-react-grid";
 import "@progress/kendo-theme-material/dist/all.css";
 
-import { AppContext } from "../../context/AppContext";
 import * as constants from "./constants";
 import { todoReducer } from "./todoReducer";
 
 const initialState = [...constants.TODO_SEED];
 
 const Todo = () => {
-  const context = useContext(AppContext);
-  const [todos, dispatch] = useReducer(todoReducer, initialState);
-  const [textInput, setTextInput] = useState("");
-  const completedTodos = todos.filter(todo => todo.complete);
+  // 01: Add todo and textInput state
+  // 02: Add completedTodos filter
 
-  useEffect(() => {
-    document.title = `${completedTodos.length} completed to do's`;
-    if(!todos.length) {
-      context.setScreenAnnoncement('No To Do\'s remaining.');
-    }
-  }, [todos]);
+  // 03: Add effect for doc title
 
   function addTodo(event) {
     event.preventDefault();
-    dispatch({
-      type: "ADD_TODO",
-      name: textInput,
-      complete: false
-    });
-    setTextInput("");
-    context.setScreenAnnoncement(`${textInput} added.`);
+    // 04: Add add_todo dispatch
   }
-  function toggleComplete({ id, name, complete }) {
-    dispatch({ type: "TOGGLE_COMPLETE", id });
-    let completeString = !complete ? "completed" : "cancelled";
-    context.setScreenAnnoncement(`${name} was ${completeString}.`);
+  function toggleComplete(id) {
+    // 05: Add toggle_complete dispatch
   }
-  function deleteTodo(item) {
-    let id = item.id
-    dispatch({ type: "DELETE_TODO", id });
-    context.setScreenAnnoncement(`${item.name} was removed.`);
+  function deleteTodo(id) {
+    // 06: Add delete_todos dispatch
   }
   function clearTodos() {
-    dispatch({ type: "CLEAR_TODOS" });
-    context.setScreenAnnoncement(`All todos removed.`);
+    // 07: Add clear_todos dispatch
   }
 
-  function updateTextInput(event) {
-    const value = event.target.value;
-    if (textInput !== value) {
-      setTextInput(value);
-    }
-  }
+  // 08: Add updateTextInput function
 
   return (
     <>
       <div className="todo-form">
         <form onSubmit={addTodo}>
-          <Input onChange={updateTextInput} value={textInput} type="search" placeholder="Enter task..." autoComplete="off" />
+          {/* 09: Add onChange */}
+          <Input type="search" placeholder="Enter task..." autoComplete="off" />
           <Button onClick={e => addTodo(e)} look="bare" icon="plus" type="submit">
             Add To Do
           </Button>
         </form>
       </div>
       <div className="todo-container">
-        <Grid
-          // rowRender={rowRender}
-          data={todos} style={{ width: "100%", height: "100%" }}
-        >
+        {/* 10: Change fron initialState to todos */}
+        <Grid data={initialState} style={{ width: "100%", height: "100%" }}>
           <Column field="name" title="Name" />
           <Column field="complete" title="Completed"
-            cell={props => (
+            cell={(props) => (
               <td>
-                <Button onClick={() => toggleComplete(props.dataItem)}
-                  aria-label={`${props.dataItem.complete ? 'Unc' : 'C'}ompletes ${props.dataItem.name}.`}
-                  look="bare" icon={props.dataItem[props.field] ? "checkbox-checked" : "checkbox" }
+                <Button onClick={() => toggleComplete(props.dataItem.id)}
+                  look="bare" 
+                  icon={props.dataItem[props.field] 
+                    ? "checkbox-checked" 
+                    : "checkbox" }
                 />
               </td>
             )}
           />
           <Column title="Remove"
-            cell={props => (
+            cell={(props) => (
               <td>
-                <Button onClick={() => deleteTodo(props.dataItem)} 
-                  aria-label={`removes ${props.dataItem.name}`}
-                  look="bare" icon="trash"
-                />
+                <Button onClick={() => deleteTodo(props.dataItem.id)} look="bare" icon="trash" />
               </td>
             )}
           />
@@ -97,7 +71,6 @@ const Todo = () => {
       <Button onClick={() => clearTodos()} look="bare" icon="reset">
         Remove All To Do's
       </Button>
-      
     </>
   );
 };

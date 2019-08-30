@@ -1,0 +1,15 @@
+{
+	"Dispatch Object": {
+		"scope": "javascript",
+		"prefix": "s04a",
+		"body": [
+			"dispatch({",
+			"  type: 'ADD_TODO',",
+			"  name: textInput,",
+			"  complete: false",
+			"});",
+			"setTextInput('');"
+		],
+		"description": "todo-app "
+	}
+}

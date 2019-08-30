@@ -1,0 +1,15 @@
+{
+	"Redirect on toHome": {
+		"scope": "javascript",
+		"prefix": "s08",
+		"body": [
+			"function updateTextInput(event) {",
+			"  const value = event.target.value;",
+			"  if (textInput !== value) {",
+			"    setTextInput(value);",
+			"  }",
+			"}"
+		],
+		"description": "Add textInput update function"
+	}
+}
