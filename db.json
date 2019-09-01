@@ -1,36 +1,30 @@
 [
   {
     "id": 1,
-    "name": "Getting Started",
-    "author": "Kyle Simpson",
-    "url": "https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/getting-started/README.md"
-  },
-  {
-    "id": 2,
     "name": "Scope & Closures",
     "author": "Kyle Simpson",
     "url": "https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/README.md"
   },
   {
-    "id": 3,
+    "id": 2,
     "name": "this & Object Prototypes",
     "author": "Kyle Simpson",
     "url": "https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/this-object-prototypes/README.md"
   },
   {
-    "id": 4,
+    "id": 3,
     "name": "Types & Grammar",
     "author": "Kyle Simpson",
     "url": "https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/types-grammar/README.md"
   },
   {
-    "id": 5,
+    "id": 4,
     "name": "Async & Performance",
     "author": "Kyle Simpson",
     "url": "https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/async-performance/README.md"
   },
   {
-    "id": 6,
+    "id": 5,
     "name": "ES.Next & Beyond",
     "author": "Kyle Simpson",
     "url": "https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/es-next-beyond/README.md"
