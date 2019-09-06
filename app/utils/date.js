@@ -13,7 +13,6 @@ export function getCurrentDate(mode = '', formatChar = '/') {
   if (mode === 'full') {
     return `${year}${formatChar}${month < 10 ? `0${month}` : `${month}`}${formatChar}${date}`;
   }
-
   if (mode === 'month-year') {
     return `${month < 10 ? `0${month}` : `${month}`}${formatChar}${year}`
   }

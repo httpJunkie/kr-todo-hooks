@@ -1,32 +1,34 @@
-[
-  {
-    "id": 1,
-    "name": "Scope & Closures",
-    "author": "Kyle Simpson",
-    "url": "https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/README.md"
-  },
-  {
-    "id": 2,
-    "name": "this & Object Prototypes",
-    "author": "Kyle Simpson",
-    "url": "https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/this-object-prototypes/README.md"
-  },
-  {
-    "id": 3,
-    "name": "Types & Grammar",
-    "author": "Kyle Simpson",
-    "url": "https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/types-grammar/README.md"
-  },
-  {
-    "id": 4,
-    "name": "Async & Performance",
-    "author": "Kyle Simpson",
-    "url": "https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/async-performance/README.md"
-  },
-  {
-    "id": 5,
-    "name": "ES.Next & Beyond",
-    "author": "Kyle Simpson",
-    "url": "https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/es-next-beyond/README.md"
-  }
-]
+{
+  "books": [
+    {
+      "id": 1,
+      "name": "Scope & Closures",
+      "author": "Kyle Simpson",
+      "url": "https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/scope-closures/README.md"
+    },
+    {
+      "id": 2,
+      "name": "this & Object Prototypes",
+      "author": "Kyle Simpson",
+      "url": "https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/this-object-prototypes/README.md"
+    },
+    {
+      "id": 3,
+      "name": "Types & Grammar",
+      "author": "Kyle Simpson",
+      "url": "https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/types-grammar/README.md"
+    },
+    {
+      "id": 4,
+      "name": "Async & Performance",
+      "author": "Kyle Simpson",
+      "url": "https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/async-performance/README.md"
+    },
+    {
+      "id": 5,
+      "name": "ES.Next & Beyond",
+      "author": "Kyle Simpson",
+      "url": "https://github.com/getify/You-Dont-Know-JS/blob/2nd-ed/es-next-beyond/README.md"
+    }
+  ]
+}

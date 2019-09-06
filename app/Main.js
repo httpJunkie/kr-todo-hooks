@@ -7,6 +7,7 @@ import Alert from "@reach/alert";
 const Home = lazy(() => import('./view-components/Home'));
 const Todos = lazy(() => import('./view-components/todos/Todos'));
 const Todoz = lazy(() => import('./view-components/todos/Todoz'));
+const Books = lazy(() => import('./view-components/Books'));
 const LoadingMessage = () => `loading...`;
 
 import Logo from "./partial-components/Logo";
@@ -33,6 +34,7 @@ const Main = () => {
                 <Route exact path="/" component={Home} />
                 <Route exact path="/todos" component={Todos} />
                 <Route exact path="/todoz" component={Todoz} />
+                <Route exact path="/ydkjs" component={Books} />
               </Suspense>
               <Route render={() => <h2>404 Page Not Found</h2>} />
             </Switch>
