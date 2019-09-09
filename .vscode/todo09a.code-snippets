@@ -1,0 +1,10 @@
+{
+	"Clear Todos": {
+		"scope": "javascript",
+		"prefix": "s09a",
+		"body": [
+      "dispatch({ type: 'CLEAR_TODOS' });",
+		],
+		"description": "Add clearTodos dispatch"
+	}
+}

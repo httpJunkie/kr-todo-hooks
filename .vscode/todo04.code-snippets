@@ -1,10 +1,10 @@
 {
 	"Redirect on toHome": {
 		"scope": "javascript",
-		"prefix": "s09",
+		"prefix": "s04",
 		"body": [
 			"onChange={updateTextInput} value={textInput}"
 		],
-		"description": "Add textInput update function"
+		"description": "Add onChange call for text input"
 	}
 }

@@ -1,12 +1,15 @@
 {
-	"Use Effect": {
+	"Redirect on toHome": {
 		"scope": "javascript",
 		"prefix": "s03",
 		"body": [
-      "useEffect(() => {",
-      "  document.title = `${completedTodos.length} completed to do's`;",
-      "});"
+			"function updateTextInput(event) {",
+			"  const value = event.target.value;",
+			"  if (textInput !== value) {",
+			"    setTextInput(value);",
+			"  }",
+			"}"
 		],
-		"description": "todo-app useEffect"
+		"description": "Add textInput update function"
 	}
 }

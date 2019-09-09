@@ -1,10 +1,15 @@
 {
-	"Delete Todo": {
+	"Dispatch Object": {
 		"scope": "javascript",
 		"prefix": "s06a",
 		"body": [
-      "dispatch({ type: 'DELETE_TODO', id });"
+			"dispatch({",
+			"  type: 'ADD_TODO',",
+			"  name: textInput,",
+			"  complete: false",
+			"});",
+			"setTextInput('');"
 		],
-		"description": "todo-app deleteTodo dispatch"
+		"description": "Add our addTodo dispatch"
 	}
 }

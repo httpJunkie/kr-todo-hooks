@@ -1,5 +1,5 @@
 export const todoReducer = (state, action) => {
-switch (action.type) {
+  switch (action.type) {
     case 'ADD_TODO': {
       return null // 04
     }

@@ -1,10 +1,16 @@
 {
-	"Delete Todo Reducer Result": {
+	"Add_Todo Reducer Result": {
 		"scope": "javascript",
 		"prefix": "s06b",
 		"body": [
-      "state.filter((todo) => todo.id !== action.id);"
+			"(action.name.length)",
+			"  ? [...state, {",
+			"    id: state.length ? Math.max(...state.map((todo) => todo.id)) + 1 : 0,",
+			"    name: action.name,",
+			"    complete: action.complete",
+			"  }]",
+			"  : state"
 		],
-		"description": "todo-app deleteTodo reducer result"
+		"description": "Update Add_Todo reducer result"
 	}
 }

@@ -1,10 +1,10 @@
 {
-	"Clear Todos": {
+	"Toggle Complete": {
 		"scope": "javascript",
 		"prefix": "s07a",
 		"body": [
-      "dispatch({ type: 'CLEAR_TODOS' });",
+      "dispatch({ type: 'TOGGLE_COMPLETE', id });"
 		],
-		"description": "todo-app clearTodos dispatch and setHome true"
+		"description": "Add toggleComplete dispatch"
 	}
 }

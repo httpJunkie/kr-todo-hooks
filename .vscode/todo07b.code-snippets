@@ -1,10 +1,14 @@
 {
-	"Clear_Todos Reducer Result": {
+	"Toggle_Complete Reducer Result": {
 		"scope": "javascript",
 		"prefix": "s07b",
 		"body": [
-      "[];"
+			"state.map((item) =>",
+			"  item.id === action.id",
+			"    ? { ...item, complete: !item.complete }",
+			"    : item",
+			")"
 		],
-		"description": "todo-app Clear_Todos reducer result"
+		"description": "Update Toggle_Complete reducer result"
 	}
 }
