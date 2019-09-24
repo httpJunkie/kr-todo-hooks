@@ -1,5 +1,6 @@
 {
   "plugins": [
+    "react",
     "react-hooks"
   ],
   "parser": "babel-eslint",
@@ -19,7 +20,8 @@
   "extends": [],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
+    "react-hooks/exhaustive-deps": "warn",
+    "react/jsx-no-duplicate-props": "error"
   },
   "settings": {
     "react": {
