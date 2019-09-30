@@ -1,8 +1,10 @@
 import React, { useState, useEffect, createContext } from 'react';
-const theme_key = 'kr_todo_theme';
+import { useMediaPredicate } from "react-media-hook";
 
 const AppContext = createContext();
+
 const AppProvider = props => {
+  const preferredTheme = useMediaPredicate('(prefers-color-scheme: dark)') ? 'dark' : 'light'
   const [appData, setApp] = useState({
 
     navOpen: false,
@@ -10,20 +12,15 @@ const AppProvider = props => {
       { ...data, navOpen: value }
     )),
 
-    themeMode: localStorage.getItem(theme_key) || 'light',
+    themeMode: localStorage.getItem('kr-todo-theme') || preferredTheme,
     changeTheme: mode => setApp(data => (
       {...data, themeMode: mode }
     )),
 
-    screenAnnoncement: null,
-    setScreenAnnoncement: (message, action) => {
-      setApp(data => ({...data, screenReaderAnnoncement: message }));
-      console.log(message);
-    },
   });
   
   useEffect(() => {
-    localStorage.setItem(theme_key, appData.themeMode)
+    localStorage.setItem('kr-todo-theme', appData.themeMode)
     }, [appData.themeMode]
   );
   

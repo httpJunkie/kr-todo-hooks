@@ -3,7 +3,7 @@ import './Topnav.scss';
 
 import Menu from './Menu';
 
-const TopNav = () => {
+const Topnav = () => {
   return (
     <div className={'topnav'}>
       <Menu />
@@ -11,4 +11,4 @@ const TopNav = () => {
   )
 }
 
-export default TopNav;
+export default Topnav;

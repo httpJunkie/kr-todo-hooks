@@ -7,13 +7,13 @@ import './App.scss';
 
 /* Import Global App State and Provide to entire Application */
 import { AppProvider } from "./context/AppContext";
-import Main from './Main';
+import Frame from './Frame';
 
 const App = () => {
 
   return (
     <AppProvider>
-      <Main />
+      <Frame />
     </AppProvider>
   )
 }

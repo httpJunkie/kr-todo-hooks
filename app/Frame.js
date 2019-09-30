@@ -11,11 +11,11 @@ const Books = lazy(() => import('./view-components/Books'));
 const LoadingMessage = () => `loading...`;
 
 import Logo from "./partial-components/Logo";
-import SideNav from "./partial-components/Sidenav";
-import TopNav from "./partial-components/Topnav";
+import Sidenav from "./partial-components/Sidenav";
+import Topnav from "./partial-components/Topnav";
 import Foot from "./partial-components/Foot";
 
-const Main = () => {
+const Frame = () => {
   const context = useContext(AppContext);
   let breakpoint = useMediaPredicate("(min-width: 600px)") ? "medium" : "small";
   let themeMode = context.themeMode === "light" ? "light" : "dark";
@@ -26,7 +26,7 @@ const Main = () => {
         <main>
           <header>
             <Logo />
-            <TopNav />
+            <Topnav />
           </header>
           <section>
             <Switch>
@@ -43,11 +43,11 @@ const Main = () => {
             <Foot />
           </footer>
         </main>
-        <SideNav />
+        <Sidenav />
       </div>
       <Alert>{context.screenReaderAnnoncement}</Alert>
     </BrowserRouter>
   );
 };
 
-export default Main;
+export default Frame;
