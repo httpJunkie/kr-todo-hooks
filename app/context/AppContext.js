@@ -17,6 +17,12 @@ const AppProvider = props => {
       {...data, themeMode: mode }
     )),
 
+    screenAnnoncement: null,
+    setScreenAnnoncement: (message, action) => {
+      setApp(data => ({...data, screenReaderAnnoncement: message }));
+      console.log(message);
+    }
+
   });
   
   useEffect(() => {
