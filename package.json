@@ -37,7 +37,7 @@
     "@progress/kendo-react-intl": "^3.11.0",
     "@progress/kendo-theme-material": "^3.10.2",
     "@reach/alert": "^0.1.5",
-    "axios": "^0.19.2",
+    "axios": "^0.21.2",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
